@@ -42,7 +42,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="mb-10">
         <a href="{{ route('dashboard.product.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold inline-block py-2 px-4 rounded shadow-lg">
-          + Create Productttt
+          + Create Product
         </a>
       </div>
       <div class="shadow overflow-hidden sm-rounded-md mt-10">
