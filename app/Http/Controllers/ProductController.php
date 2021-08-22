@@ -23,11 +23,16 @@ class ProductController extends Controller
         ->addColumn('action', function ($item) {
           return '
 
-                  <a  
+                  <a class="bg-gray-500 text-white rounded-md px-2 py-1 m-2" 
                       href="' . route('dashboard.product.edit', $item->id) . '">
                       Edit
                   </a>
-
+                  <form class="inline-block" action="' . route('dashboard.product.destroy', $item->id) . '" method="POST">
+                    <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">
+                      Hapus
+                    </button>
+                    ' . method_field('delete') . csrf_field() . '
+                  </form>
                   ';
         })
         ->editColumn('price', function ($item) {
@@ -112,8 +117,9 @@ class ProductController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function destroy($id)
+  public function destroy(Product $product)
   {
-    //
+    $product->delete();
+    return redirect()->route('dashboard.product.index');
   }
 }
